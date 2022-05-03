@@ -232,12 +232,21 @@ startGame = () => {
 
 getNewQuestion = () => {
     // this for check variable ...
+    /*
+     the issues why happen?
+     answer:
+     1-because when you splice will splice everything if questions is 0.
+     2- same thing error on availableQuestions.length === 0 so i fixed it as check by just questionCounter === Max_Question
+     questionCounter >= Max_Question no need to it because it will be true when == before > so no need to >.
+    */
     console.log(questionCounter >= Max_Question)
     console.log(questionCounter)
     console.log(Max_Question)
     console.log(availableQuestions.length)
-    console.log(availableQuestions.length === 0 || questionCounter >= Max_Question)
-    if (availableQuestions.length === 0 || questionCounter >= Max_Question){
+    console.log(questionCounter === Max_Question)
+    //availableQuestions.length === 0 || 
+    if (questionCounter === Max_Question){
+        return
         return window.location.assign("/end.html");
     }
     
