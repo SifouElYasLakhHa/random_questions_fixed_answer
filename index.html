@@ -231,16 +231,17 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
+    // this for check variable ...
     console.log(questionCounter >= Max_Question)
     console.log(questionCounter)
     console.log(Max_Question)
     console.log(availableQuestions.length)
     console.log(availableQuestions.length === 0 || questionCounter >= Max_Question)
     if (availableQuestions.length === 0 || questionCounter >= Max_Question){
-        return
-      //  return window.location.assign("/end.html");
+        return window.location.assign("/end.html");
     }
     
+    // from here
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -248,9 +249,12 @@ getNewQuestion = () => {
         const number = choices[i].dataset['number'];
         choices[i].innerText = currentQuestion['choice' + number];
 
+        // 1 to questionIndex. 
+        
         availableQuestions.splice(questionIndex, questionIndex);
         acceptingAnswers = true;
     }
+    // move it from line 244.
     questionCounter++;
 };
 
